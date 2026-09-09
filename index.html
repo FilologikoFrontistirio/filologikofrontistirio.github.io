@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#151515">
+<title>Φιλολογικό Φροντιστήριο</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+  color:#141414;
+  padding:22px 16px 34px;
+  background:
+    radial-gradient(circle at 8% 5%, rgba(255,0,110,.18), transparent 28%),
+    radial-gradient(circle at 94% 12%, rgba(80,45,255,.16), transparent 30%),
+    radial-gradient(circle at 82% 92%, rgba(255,170,0,.13), transparent 27%),
+    linear-gradient(135deg,#f5f4f8 0%,#ffffff 45%,#f3f3f6 100%);
+}
+.wrap{max-width:520px;margin:0 auto}
+.card{
+  background:rgba(255,255,255,.91);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:32px;
+  padding:24px 18px 23px;
+  box-shadow:0 20px 65px rgba(0,0,0,.12);
+  backdrop-filter:blur(14px);
+}
+.logo-wrap{display:flex;justify-content:center;align-items:center;margin:0 auto 15px;width:100%;max-width:390px}
+.logo{width:100%;height:auto;display:block;max-height:190px;object-fit:contain}
+h1{text-align:center;margin:2px 0 8px;font-size:26px;line-height:1.15;letter-spacing:-.6px}
+.welcome{text-align:center;color:#6c6c72;margin:0 0 23px;font-size:15px}
+.button{
+  display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;
+  border-radius:20px;padding:15px 16px;margin:12px 0;
+  box-shadow:0 8px 22px rgba(0,0,0,.10);
+  transition:transform .15s ease,box-shadow .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.button:active{transform:scale(.985)}
+.instagram{background:linear-gradient(110deg,#ff9a00 0%,#ff0069 43%,#7b2cff 100%)}
+.tiktok{background:linear-gradient(110deg,#00cfff 0%,#16d9c4 45%,#8b5cf6 100%)}
+.wifi{background:linear-gradient(110deg,#090909 0%,#242424 100%)}
+.icon{
+  width:48px;height:48px;flex:0 0 48px;border-radius:15px;
+  display:grid;place-items:center;font-size:25px;
+  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.2)
+}
+.text{min-width:0;flex:1}
+.title{display:block;font-weight:780;font-size:17px;margin-bottom:3px}
+.sub{display:block;color:rgba(255,255,255,.82);font-size:13px;line-height:1.25}
+.arrow{font-size:25px;color:rgba(255,255,255,.76)}
+.wifi-panel{
+  display:none;margin-top:10px;padding:18px;border-radius:21px;
+  background:#f4f4f5;border:1px solid #e5e5e7;text-align:center
+}
+.wifi-panel.show{display:block}
+.qr{width:205px;height:205px;max-width:70vw;border-radius:12px;background:#fff;padding:8px}
+.wifi-name{font-weight:780;margin-top:10px;font-size:16px}
+.wifi-note{color:#707075;font-size:12px;margin-top:5px;line-height:1.4}
+.copy{margin-top:12px;border:0;border-radius:12px;padding:11px 15px;background:#111;color:#fff;font-size:13px;font-weight:650}
+.teachers{margin-top:27px;padding-top:20px;border-top:1px solid rgba(0,0,0,.08);text-align:center}
+.teacher{display:block;width:max-content;max-width:100%;margin:12px auto 0;font-size:13px;font-weight:800;letter-spacing:1.25px;color:#151515;padding-bottom:5px;border-bottom:2px solid #111}
+.footer{text-align:center;color:#a0a0a5;font-size:11px;margin-top:19px}
+</style>
+</head>
+<body>
+<main class="wrap"><section class="card">
+<div class="logo-wrap"><img class="logo" src="logo.png" alt="Λογότυπο Φιλολογικό Φροντιστήριο"></div>
+<h1>Φιλολογικό Φροντιστήριο</h1>
+<p class="welcome">Καλώς ήρθες! 👋</p>
+
+<a class="button instagram" href="https://www.instagram.com/filologiko_frontistirio/" target="_blank" rel="noopener">
+<span class="icon">◎</span><span class="text"><span class="title">Instagram</span><span class="sub">@filologiko_frontistirio</span></span><span class="arrow">›</span>
+</a>
+
+<a class="button tiktok" href="https://www.tiktok.com/@filologikofrontis" target="_blank" rel="noopener">
+<span class="icon">♪</span><span class="text"><span class="title">TikTok</span><span class="sub">@filologikofrontis</span></span><span class="arrow">›</span>
+</a>
+
+<a class="button wifi" href="#wifi" onclick="toggleWifi(event)">
+<span class="icon">⌁</span><span class="text"><span class="title">Wi-Fi</span><span class="sub">Συνδέσου στο Wi-Fi του φροντιστηρίου</span></span><span class="arrow">›</span>
+</a>
+
+<div id="wifi" class="wifi-panel">
+<img class="qr" src="wifi-qr.png" alt="QR code για σύνδεση στο Wi-Fi">
+<div class="wifi-name">Filologiko Frontistirio</div>
+<div class="wifi-note">Σκάναρε το QR code με την κάμερα του κινητού σου για να συνδεθείς.</div>
+<button class="copy" onclick="copyPassword()">Αντιγραφή κωδικού Wi-Fi</button>
+</div>
+
+<div class="teachers">
+<span class="teacher">ΜΑΤΘΑΙΟΠΟΥΛΟΥ ΑΝΝΑ</span>
+<span class="teacher">ΧΡΙΣΤΑΝΗ ΠΟΛΥ</span>
+</div>
+
+<div class="footer">Φιλολογικό Φροντιστήριο</div>
+</section></main>
+<script>
+function toggleWifi(e){
+e.preventDefault();const panel=document.getElementById('wifi');panel.classList.toggle('show');
+if(panel.classList.contains('show'))setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'center'}),50)
+}
+async function copyPassword(){
+try{await navigator.clipboard.writeText("2310701852");document.querySelector('.copy').textContent="✓ Ο κωδικός αντιγράφηκε";setTimeout(()=>document.querySelector('.copy').textContent="Αντιγραφή κωδικού Wi-Fi",1800)}
+catch(e){alert("Κωδικός Wi-Fi: 2310701852")}
+}
+</script>
+</body>
+</html>
